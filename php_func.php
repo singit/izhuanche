@@ -18,5 +18,13 @@ function http_post_data($url, $data_string) {
 	return array($return_code, $return_content);
 }
 
+function http_get_data($url) {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
+        $output = curl_exec($ch);
+        return $output
+}
+
 
 ?>
